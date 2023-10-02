@@ -1,30 +1,27 @@
 ﻿#include <stdio.h>
 
-template <typename T>
-
-T Min(T a, T b)
+int Recursive(int n)
 {
-	if (a < b)
+	if (n <= 1)
 	{
-		return a;
+		return 100;
 	}
+
+	return (Recursive(n - 1) * 2 -50);
 }
 
-template<>
-char Min<char>(char a, char b)
-{
-	return printf("数字以外は代入出来ません");
-}
 
 int main(void)
 {
-	char chr1 = 'a';
-	char chr2 = 'b';
+	int num = 4;
+	int result = 0;
 
-	printf("%d\n", Min<int>(200, 500));
-	printf("%f\n", Min<float>(1.0f, 3.0f));
-	printf("%f\n", Min<double>(100.333, 80.333));
-	printf("%c\n", Min<char>(chr1, chr2));
+	result = Recursive(num);
+
+	for (int i = 0; i < 24; i++)
+	{
+		printf("%d時間働くと%d\n", i, result);
+	}
 
 	return 0;
 }
