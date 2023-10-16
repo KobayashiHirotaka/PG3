@@ -25,19 +25,17 @@ void DiceRoll(PFunc p)
 void CheckResult(int result, char* guess)
 {
     int diceResult = (result % 2 == 1);
-    int isCorrect = 0;
 
     if ((diceResult && strcmp(guess, "奇数") == 0) || (!diceResult && strcmp(guess, "偶数") == 0))
     {
-        isCorrect = 1;
+        SetTimeout(3);
+        printf("結果は正解です。\n");
 
     } else {
-        isCorrect = 0;
+        SetTimeout(3);
+        printf("結果は不正解です。\n");
     }
 
-    SetTimeout(3);
-
-    printf("結果は %s です。\n", isCorrect ? "正解" : "不正解");
     printf("出た目は %d です。\n", result);
 }
 
