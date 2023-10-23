@@ -1,18 +1,18 @@
 ﻿#include <stdio.h>
 
-int Normal(int n)
+int CalcNormal(int n)
 {
 	return (n * 1072);
 }
 
-int Recursive(int n, int result = 100)
+int CalcRecursive(int n, int result = 100)
 {
 	if (n <= 1)
 	{
 		return (result);
 	}
 
-	return (result + Recursive(n - 1, result * 2 - 50));
+	return (result + CalcRecursive(n - 1, result * 2 - 50));
 }
 
 
@@ -21,8 +21,8 @@ int main(void)
 	int time = 8;
 	int result[2] = { 0,0 };
 
-	result[0] = Normal(time);
-	result[1] = Recursive(time);
+	result[0] = CalcNormal(time);
+	result[1] = CalcRecursive(time);
 
 	printf("一般的：%d時間働くと%d\n", time, result[0]);
 	printf("再帰的：%d時間働くと%d\n", time, result[1]);
