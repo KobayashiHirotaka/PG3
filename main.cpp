@@ -5,14 +5,14 @@ int Normal(int n)
 	return (n * 1072);
 }
 
-int Recursive(int n)
+int Recursive(int n, int result = 100)
 {
 	if (n <= 1)
 	{
-		return (100);
+		return (result);
 	}
 
-	return (Recursive(n - 1) * 2 - 50);
+	return (result + Recursive(n - 1, result * 2 - 50));
 }
 
 
