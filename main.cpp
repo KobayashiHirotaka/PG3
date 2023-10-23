@@ -18,7 +18,7 @@ int Recursive(int n)
 
 int main(void)
 {
-	int time = 9;
+	int time = 8;
 	int result[2] = { 0,0 };
 
 	result[0] = Normal(time);
