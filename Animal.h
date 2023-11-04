@@ -1,6 +1,6 @@
 #pragma once
 
-class IAnimal
+class Animal
 {
 public:
 	virtual void Cry() = 0;

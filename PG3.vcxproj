@@ -132,7 +132,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IAnimal.h" />
+    <ClInclude Include="Animal.h" />
     <ClInclude Include="Cat.h" />
     <ClInclude Include="Dog.h" />
   </ItemGroup>

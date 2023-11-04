@@ -1,8 +1,8 @@
 #pragma once
 #include <stdio.h>
-#include "IAnimal.h"
+#include "Animal.h"
 
-class Dog : public IAnimal
+class Dog : public Animal
 {
 public:
 	Dog();
