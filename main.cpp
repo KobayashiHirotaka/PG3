@@ -13,5 +13,8 @@ int main()
 		animals[i]->Cry();
 	}
 
+	delete animals[0];
+	delete animals[1];
+
 	return 0;
 }
