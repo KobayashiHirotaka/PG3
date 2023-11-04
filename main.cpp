@@ -5,7 +5,7 @@
 
 typedef void (*PFunc)(int, char *);
 
-void SetTimeout(int second)
+void SetTimeout(PFunc p, int second)
 {
     Sleep(second * 1000);
 }
@@ -19,6 +19,8 @@ void DiceRoll(PFunc p)
     printf("奇数か偶数かを入力してください : ");
     scanf_s("%s", guess, sizeof(guess));
 
+    SetTimeout(p, 3);
+
     p(result, guess);
 }
 
@@ -28,11 +30,9 @@ void CheckResult(int result, char* guess)
 
     if ((diceResult && strcmp(guess, "奇数") == 0) || (!diceResult && strcmp(guess, "偶数") == 0))
     {
-        SetTimeout(3);
         printf("結果は正解です。\n");
 
     } else {
-        SetTimeout(3);
         printf("結果は不正解です。\n");
     }
 
