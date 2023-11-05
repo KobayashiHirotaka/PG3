@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <Windows.h>
 
-void Game(std::function<int(std::mt19937&)> func, std::mt19937& randomEngine) 
+void GamePlay(std::function<int(std::mt19937&)> func, std::mt19937& randomEngine) 
 {
 	char guess[10];
 	printf("奇数か偶数かを入力してください : ");
@@ -20,8 +20,7 @@ void Game(std::function<int(std::mt19937&)> func, std::mt19937& randomEngine)
 	{
 		printf("結果は正解です。\n");
 
-	}
-	else {
+	} else {
 		printf("結果は不正解です。\n");
 	}
 
@@ -39,7 +38,7 @@ int main()
 		return distribution(randomEngine);
 	};
 
-	Game(dice, randomEngine);
+	GamePlay(dice, randomEngine);
 
 	return 0;
 }
