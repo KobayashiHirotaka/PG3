@@ -5,7 +5,7 @@ class Pair
 {
 public:
 
-	Pair(Type1 value1, Type2 value2) : value1(value1), value2(value2){}
+	Pair(Type1 value1, Type2 value2) : value1(value1), value2(value2) {};
 
 	Type1 Min()
 	{
