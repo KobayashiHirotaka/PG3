@@ -6,7 +6,7 @@ class Cat : public Animal
 {
 public:
 	Cat();
-	~Cat();
+	~Cat()override;
 
 	void Cry()override;
 };

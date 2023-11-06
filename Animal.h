@@ -3,5 +3,9 @@
 class Animal
 {
 public:
-	virtual void Cry() = 0;
+	Animal();
+
+	virtual ~Animal();
+
+	virtual void Cry();
 };

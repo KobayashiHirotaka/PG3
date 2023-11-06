@@ -6,7 +6,7 @@ class Dog : public Animal
 {
 public:
 	Dog();
-	~Dog();
+	~Dog()override;
 
 	void Cry()override;
 };
