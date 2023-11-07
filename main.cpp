@@ -8,6 +8,7 @@ typedef void (*PFunc)(int, char *);
 void SetTimeout(PFunc p, int second)
 {
     Sleep(second * 1000);
+    p;
 }
 
 void DiceRoll(PFunc p)
