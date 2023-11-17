@@ -1,44 +1,55 @@
 ﻿#include <iostream>
 #include <functional>
 #include <random>
-#include <stdio.h>
-#include <stdlib.h>
+#include <string>
 #include <Windows.h>
 
-void GamePlay(std::function<int(std::mt19937&)> func, std::mt19937& randomEngine) 
+typedef void (pFunc)(std::string&, int);
+
+void SetTimeout(pFunc p, int second, std::string& answer, int result)
 {
-	char guess[10];
-	printf("奇数か偶数かを入力してください : ");
-	scanf_s("%s", guess, sizeof(guess));
+    Sleep(second * 1000);
+    p(answer, result);
+}
 
-	Sleep(3 * 1000);
+int DiceRoll(std::mt19937& randomEngine)
+{
+    std::uniform_int_distribution<> distribution(1, 6);
+    return distribution(randomEngine);
+}
 
-	int diceResult = func(randomEngine);
-	int result = (diceResult % 2 == 1);
+void CheckResult(std::string& answer, int result)
+{
+    int diceResult = result % 2 == 1;
 
-	if ((result && strcmp(guess, "奇数") == 0) || (!result && strcmp(guess, "偶数") == 0))
-	{
-		printf("結果は正解です。\n");
+    if (diceResult && answer == "奇数" || !diceResult && answer == "偶数")
+    {
+        std::cout << "正解" << std::endl;
 
-	} else {
-		printf("結果は不正解です。\n");
-	}
+    } else {
+        std::cout << "不正解" << std::endl;
+    }
 
-	printf("出た目は %d です。\n", diceResult);
+    std::cout << "出た目は" << result << "" << "です" << std::endl;
 }
 
 int main()
 {
-	std::random_device seedGenerator;
-	std::mt19937 randomEngine(seedGenerator());
+    std::random_device seedGenerator;
+    std::mt19937 randomEngine(seedGenerator());
 
-	std::function<int(std::mt19937&)> dice =[&](std::mt19937& randomEngine)
-	{
-		std::uniform_int_distribution<> distribution(1, 6);
-		return distribution(randomEngine);
-	};
+    int second = 3;
 
-	GamePlay(dice, randomEngine);
+    std::function<void(pFunc p, int second, std::string& answer, int result)> fx = SetTimeout;
 
-	return 0;
+    //ラムダ式
+    [fx, second, &randomEngine]() {
+        std::cout << "奇数か偶数を入力してください" << std::endl;
+        std::string str;
+        std::cin >> str;
+        int result = DiceRoll(randomEngine);
+        fx(CheckResult, second, str, result);
+    }();
+
+    return 0;
 }
