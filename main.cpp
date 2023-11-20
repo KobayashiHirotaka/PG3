@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <functional>
 #include <random>
 #include <string>
@@ -42,7 +42,6 @@ int main()
 
     std::function<void(pFunc p, int second, std::string& answer, int result)> fx = SetTimeout;
 
-    //ラムダ式
     [fx, second, &randomEngine]() {
         std::cout << "奇数か偶数を入力してください" << std::endl;
         std::string str;
