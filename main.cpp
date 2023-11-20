@@ -30,7 +30,7 @@ void CheckResult(std::string& answer, int result)
         std::cout << "不正解" << std::endl;
     }
 
-    std::cout << "出た目は" << result << "" << std::endl;
+    std::cout << "出た目は" << result << "" << "です" << std::endl;
 }
 
 int main()
