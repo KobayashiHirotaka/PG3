@@ -1,19 +1,21 @@
 #include <iostream>
 #include <thread>
+#include <string>
 
-void PrintThread(const std::string& str)
+void PrintMessage(const std::string& message)
 {
-    std::cout << str << std::endl;
+    std::cout << message << std::endl;
 }
 
 int main() 
 {
-    std::thread t1(PrintThread, "thread1");
-    std::thread t2(PrintThread, "thread2");
-    std::thread t3(PrintThread, "thread3");
-
+    std::thread t1(PrintMessage, "thread1");
     t1.join();
+
+    std::thread t2(PrintMessage, "thread2");
     t2.join();
+
+    std::thread t3(PrintMessage, "thread3");
     t3.join();
 
     return 0;
