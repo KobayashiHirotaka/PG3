@@ -19,8 +19,8 @@ int main()
 	std::chrono::duration<double, std::micro>elapsedMove = moveEnd - moveStart;
 
 	std::cout << "100,000文字を移動とコピーで比較しました。" << std::endl;
-	std::cout << "コピー : " << elapsedCopy.count() << "μs" << std::endl;
-	std::cout << "移動 : " << elapsedMove.count() << "μs" << std::endl;
+	std::cout << "コピー: " << elapsedCopy.count() << "μs" << std::endl;
+	std::cout << "移動: " << elapsedMove.count() << "μs" << std::endl;
 
 	return 0;
 }
